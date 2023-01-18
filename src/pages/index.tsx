@@ -6,6 +6,7 @@ import ButtonLink from '@/components/links/ButtonLink';
 import UnderlineLink from '@/components/links/UnderlineLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 /**
  * SVGR Support
@@ -46,6 +47,7 @@ export default function HomePage() {
             <ButtonLink className='mt-6' href='/components' variant='light'>
               See all components
             </ButtonLink>
+            <button onClick={() => signIn()}>Sign in</button>
 
             <UnstyledLink
               href='https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Ftheodorusclarence%2Fts-nextjs-tailwind-starter'
