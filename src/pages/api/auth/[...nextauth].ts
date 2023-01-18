@@ -4,8 +4,14 @@ import NextAuth, { NextAuthOptions } from 'next-auth';
 export const authOptions: NextAuthOptions = {
   providers: [
     CognitoProvider({
-      clientId: process.env.COGNITO_CLIENT_ID,
-      clientSecret: process.env.COGNITO_CLIENT_SECRET,
+      clientId:
+        process.env.COGNITO_CLIENT_ID != undefined
+          ? process.env.COGNITO_CLIENT_ID
+          : '',
+      clientSecret:
+        process.env.COGNITO_CLIENT_SECRET != undefined
+          ? process.env.COGNITO_CLIENT_SECRET
+          : '',
       issuer: process.env.COGNITO_ISSUER,
     }),
   ],
